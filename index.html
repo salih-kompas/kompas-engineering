@@ -4,129 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kompas Engineering & Industrial Project Support</title>
-
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #f4f6f8;
+      background: #f4f6f8;
       font-family: Arial, sans-serif;
       color: #1c1c1c;
     }
-
     .container {
-      max-width: 1000px;
-      margin: 60px auto;
-      background: white;
-      padding: 50px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      max-width: 1120px;
+      margin: 48px auto;
+      background: #ffffff;
+      padding: 56px 70px;
+      border-radius: 16px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.08);
     }
-
     .logo {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 42px;
     }
-
     .logo img {
-      max-width: 420px;
+      max-width: 340px;
       width: 100%;
       height: auto;
     }
-
     h1 {
-      font-size: 44px;
-      margin-bottom: 15px;
+      font-size: 38px;
+      margin: 0 0 14px 0;
       color: #10233f;
-      line-height: 1.2;
+      line-height: 1.18;
+      white-space: nowrap;
     }
-
-    h2 {
-      font-size: 22px;
-      font-weight: normal;
-      color: #4e6475;
+    .subtitle {
+      font-size: 19px;
+      color: #3f5870;
       margin-bottom: 40px;
-      line-height: 1.5;
+      line-height: 1.55;
+      white-space: nowrap;
     }
-
     p {
       font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 30px;
+      line-height: 1.85;
+      margin-bottom: 26px;
     }
-
     .section-title {
-      font-size: 28px;
+      font-size: 25px;
       color: #10233f;
-      margin-top: 50px;
-      margin-bottom: 25px;
+      margin-top: 46px;
+      margin-bottom: 22px;
+      font-weight: 700;
     }
-
-    ul {
-      padding-left: 24px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 42px;
+      padding-left: 0;
+      list-style: none;
     }
-
-    li {
-      margin-bottom: 14px;
+    .grid li {
       font-size: 18px;
       line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
     }
-
+    .grid li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1da9c1;
+      font-weight: bold;
+    }
     .contact {
-      margin-top: 60px;
+      margin-top: 56px;
       padding-top: 30px;
       border-top: 1px solid #d7dde3;
     }
-
     a {
       color: #1da9c1;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     .footer {
-      margin-top: 50px;
+      margin-top: 46px;
       font-size: 14px;
       color: #6b7280;
     }
-
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .container {
         margin: 20px;
-        padding: 30px;
+        padding: 34px 28px;
       }
-
+      .logo img {
+        max-width: 290px;
+      }
       h1 {
-        font-size: 34px;
+        font-size: 32px;
+        white-space: normal;
       }
-
-      h2 {
-        font-size: 20px;
+      .subtitle {
+        font-size: 18px;
+        white-space: normal;
       }
-
-      p, li {
-        font-size: 17px;
+      .grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
-
 <body>
-
   <div class="container">
-
     <div class="logo">
       <img src="Kompas Sade Logo.png" alt="Kompas Logo">
     </div>
 
     <h1>Kompas Engineering & Industrial Project Support</h1>
 
-    <h2>
+    <div class="subtitle">
       Technical consulting, project coordination and industrial support services between Germany and Turkey.
-    </h2>
+    </div>
 
     <p>
       Kompas supports industrial companies with technical coordination, supplier communication,
@@ -139,23 +137,22 @@
     </p>
 
     <div class="section-title">Focus Areas</div>
-
-    <ul>
+    <ul class="grid">
       <li>Industrial Sealing Solutions</li>
       <li>Expansion Joint Project Coordination</li>
       <li>Technical Supplier Coordination</li>
       <li>Inspection & Expediting Support</li>
       <li>Technical Documentation Support</li>
       <li>Cross-Border Industrial Operations</li>
-      <li>Technical Consulting Services</li>
+      <li>Industrial Project Support</li>
+      <li>Supplier Interface Management</li>
     </ul>
 
     <div class="section-title">Experience</div>
-
-    <ul>
+    <ul class="grid">
       <li>Industrial sealing systems</li>
       <li>Expansion joint projects</li>
-      <li>Steel component coordination</li>
+      <li>Steel fabrication follow-up</li>
       <li>International supplier communication</li>
       <li>Technical project support</li>
       <li>Industrial operations between Germany and Turkey</li>
@@ -163,25 +160,17 @@
 
     <div class="contact">
       <div class="section-title">Contact</div>
-
       <p>
         <strong>Salih Akyol</strong><br>
-        Germany
-      </p>
-
-      <p>
-        E-Mail:
-        <a href="mailto:salih@kompas-engineering.de">
-          salih@kompas-engineering.de
-        </a>
+        Germany<br><br>
+        E-Mail: <a href="mailto:salih@kompas-engineering.de">salih@kompas-engineering.de</a>
       </p>
     </div>
 
     <div class="footer">
+      Technical Coordination | Supplier Communication | Industrial Project Support<br>
       © 2026 Kompas Engineering & Industrial Project Support
     </div>
-
   </div>
-
 </body>
 </html>
