@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kompas Engineering | Quality Management Consulting</title>
+
   <style>
     body {
       margin: 0;
@@ -20,6 +21,28 @@
       padding: 56px 70px;
       border-radius: 18px;
       box-shadow: 0 12px 34px rgba(0,0,0,0.08);
+    }
+
+    .language-switch {
+      text-align: right;
+      margin-bottom: 28px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .language-switch button {
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 6px 8px;
+      font-weight: 600;
+    }
+
+    .language-switch button:hover,
+    .language-switch button.active {
+      color: #1da9c1;
     }
 
     .logo {
@@ -155,6 +178,10 @@
         padding: 34px 28px;
       }
 
+      .language-switch {
+        text-align: center;
+      }
+
       .logo img {
         max-width: 280px;
       }
@@ -185,105 +212,76 @@
 <body>
   <div class="container">
 
+    <div class="language-switch">
+      <button onclick="setLanguage('en')" id="btn-en" class="active">EN</button> |
+      <button onclick="setLanguage('de')" id="btn-de">DE</button> |
+      <button onclick="setLanguage('tr')" id="btn-tr">TR</button>
+    </div>
+
     <div class="logo">
       <img src="Kompas Sade Logo.png" alt="Kompas Engineering Logo">
     </div>
 
     <div class="hero">
       <h1>Kompas Engineering</h1>
-      <div class="subtitle">Quality Management & Management Systems Consulting</div>
-      <p class="intro">
-        Practical management systems, process improvement and quality-related consulting for industrial companies.
-      </p>
+      <div class="subtitle" id="subtitle"></div>
+      <p class="intro" id="intro"></p>
     </div>
 
     <div class="section">
-      <div class="section-title">About</div>
-      <p>
-        Kompas Engineering supports industrial companies in the development and improvement of management systems,
-        process structures and quality-related organizational practices.
-      </p>
-      <p>
-        The focus is on practical solutions that help companies establish clear processes, controlled documentation
-        and sustainable management structures.
-      </p>
+      <div class="section-title" id="about-title"></div>
+      <p id="about-p1"></p>
+      <p id="about-p2"></p>
     </div>
 
     <div class="section">
-      <div class="section-title">Core Services</div>
+      <div class="section-title" id="services-title"></div>
 
       <div class="cards">
         <div class="card">
-          <h3>Quality Management Consulting</h3>
-          <p>
-            Support for quality-related organizational development and continuous improvement activities.
-          </p>
+          <h3 id="service1-title"></h3>
+          <p id="service1-text"></p>
         </div>
 
         <div class="card">
-          <h3>Management System Development</h3>
-          <p>
-            Development and structuring of practical management systems and documentation frameworks.
-          </p>
+          <h3 id="service2-title"></h3>
+          <p id="service2-text"></p>
         </div>
 
         <div class="card">
-          <h3>ISO 9001-Oriented Support</h3>
-          <p>
-            Guidance for companies seeking to establish or improve ISO 9001-oriented processes and structures.
-          </p>
+          <h3 id="service3-title"></h3>
+          <p id="service3-text"></p>
         </div>
 
         <div class="card">
-          <h3>Process Management</h3>
-          <p>
-            Analysis, documentation and improvement of business processes, responsibilities and interfaces.
-          </p>
+          <h3 id="service4-title"></h3>
+          <p id="service4-text"></p>
         </div>
 
         <div class="card">
-          <h3>Internal Audit Support</h3>
-          <p>
-            Preparation and support for internal audits and related improvement activities.
-          </p>
+          <h3 id="service5-title"></h3>
+          <p id="service5-text"></p>
         </div>
 
         <div class="card">
-          <h3>Supplier Quality Development</h3>
-          <p>
-            Support in supplier evaluation, supplier development and quality-related communication.
-          </p>
+          <h3 id="service6-title"></h3>
+          <p id="service6-text"></p>
         </div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title">Experience</div>
-      <ul class="grid">
-        <li>Quality management systems</li>
-        <li>Process management</li>
-        <li>Internal audits</li>
-        <li>Document control systems</li>
-        <li>Supplier quality management</li>
-        <li>Technical documentation</li>
-        <li>Industrial sealing technologies</li>
-        <li>Expansion joint applications</li>
-      </ul>
+      <div class="section-title" id="experience-title"></div>
+      <ul class="grid" id="experience-list"></ul>
     </div>
 
     <div class="section">
-      <div class="section-title">Qualifications</div>
-      <ul class="grid">
-        <li>Quality Management Professional (QMF-TÜV)</li>
-        <li>TÜV SÜD Akademie</li>
-        <li>Industrial quality management</li>
-        <li>Process and management system development</li>
-        <li>International industrial experience</li>
-      </ul>
+      <div class="section-title" id="qualifications-title"></div>
+      <ul class="grid" id="qualifications-list"></ul>
     </div>
 
     <div class="contact">
-      <div class="section-title">Contact</div>
+      <div class="section-title" id="contact-title"></div>
       <p>
         <strong>Salih Akyol</strong><br>
         Germany<br><br>
@@ -291,11 +289,158 @@
       </p>
     </div>
 
-    <div class="footer">
-      Quality Management | Management Systems | Process Improvement<br>
-      © 2026 Kompas Engineering
-    </div>
-
+    <div class="footer" id="footer"></div>
   </div>
+
+  <script>
+    const content = {
+      en: {
+        subtitle: "Quality Management & Management Systems Consulting",
+        intro: "Practical management systems, process improvement and quality-related consulting for industrial companies.",
+        aboutTitle: "About",
+        aboutP1: "Kompas Engineering supports industrial companies in the development and improvement of management systems, process structures and quality-related organizational practices.",
+        aboutP2: "The focus is on practical solutions that help companies establish clear processes, controlled documentation and sustainable management structures.",
+        servicesTitle: "Core Services",
+        services: [
+          ["Quality Management Consulting", "Support for quality-related organizational development and continuous improvement activities."],
+          ["Management System Development", "Development and structuring of practical management systems and documentation frameworks."],
+          ["ISO 9001-Oriented Support", "Guidance for companies seeking to establish or improve ISO 9001-oriented processes and structures."],
+          ["Process Management", "Analysis, documentation and improvement of business processes, responsibilities and interfaces."],
+          ["Internal Audit Support", "Preparation and support for internal audits and related improvement activities."],
+          ["Supplier Quality Development", "Support in supplier evaluation, supplier development and quality-related communication."]
+        ],
+        experienceTitle: "Experience",
+        experience: [
+          "Quality management systems",
+          "Process management",
+          "Internal audits",
+          "Document control systems",
+          "Supplier quality management",
+          "Technical documentation",
+          "Industrial sealing technologies",
+          "Expansion joint applications"
+        ],
+        qualificationsTitle: "Qualifications",
+        qualifications: [
+          "Quality Management Professional (QMF-TÜV)",
+          "TÜV SÜD Akademie",
+          "Industrial quality management",
+          "Process and management system development",
+          "International industrial experience"
+        ],
+        contactTitle: "Contact",
+        footer: "Quality Management | Management Systems | Process Improvement<br>© 2026 Kompas Engineering"
+      },
+
+      de: {
+        subtitle: "Qualitätsmanagement & Beratung für Managementsysteme",
+        intro: "Praxisnahe Managementsysteme, Prozessverbesserung und qualitätsbezogene Beratung für Industrieunternehmen.",
+        aboutTitle: "Über Kompas Engineering",
+        aboutP1: "Kompas Engineering unterstützt Industrieunternehmen bei der Entwicklung und Verbesserung von Managementsystemen, Prozessstrukturen und qualitätsbezogenen Organisationspraktiken.",
+        aboutP2: "Der Schwerpunkt liegt auf praxisnahen Lösungen, die Unternehmen dabei helfen, klare Prozesse, gelenkte Dokumentation und nachhaltige Managementstrukturen aufzubauen.",
+        servicesTitle: "Leistungsschwerpunkte",
+        services: [
+          ["Qualitätsmanagement-Beratung", "Unterstützung bei qualitätsbezogener Organisationsentwicklung und kontinuierlichen Verbesserungsaktivitäten."],
+          ["Entwicklung von Managementsystemen", "Entwicklung und Strukturierung praxisnaher Managementsysteme und Dokumentationsstrukturen."],
+          ["ISO 9001-orientierte Unterstützung", "Begleitung von Unternehmen beim Aufbau oder bei der Verbesserung ISO 9001-orientierter Prozesse und Strukturen."],
+          ["Prozessmanagement", "Analyse, Dokumentation und Verbesserung von Geschäftsprozessen, Verantwortlichkeiten und Schnittstellen."],
+          ["Unterstützung bei internen Audits", "Vorbereitung und Unterstützung bei internen Audits sowie bei daraus abgeleiteten Verbesserungsmaßnahmen."],
+          ["Lieferantenqualitätsentwicklung", "Unterstützung bei Lieferantenbewertung, Lieferantenentwicklung und qualitätsbezogener Kommunikation."]
+        ],
+        experienceTitle: "Erfahrung",
+        experience: [
+          "Qualitätsmanagementsysteme",
+          "Prozessmanagement",
+          "Interne Audits",
+          "Dokumentenlenkung",
+          "Lieferantenqualitätsmanagement",
+          "Technische Dokumentation",
+          "Industrielle Dichtungstechnik",
+          "Kompensator-Anwendungen"
+        ],
+        qualificationsTitle: "Qualifikation",
+        qualifications: [
+          "Quality Management Professional (QMF-TÜV)",
+          "TÜV SÜD Akademie",
+          "Industrielles Qualitätsmanagement",
+          "Prozess- und Managementsystementwicklung",
+          "Internationale Industrieerfahrung"
+        ],
+        contactTitle: "Kontakt",
+        footer: "Qualitätsmanagement | Managementsysteme | Prozessverbesserung<br>© 2026 Kompas Engineering"
+      },
+
+      tr: {
+        subtitle: "Kalite Yönetimi & Yönetim Sistemleri Danışmanlığı",
+        intro: "Sanayi şirketleri için uygulanabilir yönetim sistemleri, süreç iyileştirme ve kalite odaklı danışmanlık.",
+        aboutTitle: "Hakkında",
+        aboutP1: "Kompas Engineering, sanayi şirketlerine yönetim sistemlerinin, süreç yapılarının ve kalite odaklı organizasyon uygulamalarının geliştirilmesi konusunda destek sağlar.",
+        aboutP2: "Odak noktası; şirketlerin açık süreçler, kontrollü dokümantasyon ve sürdürülebilir yönetim yapıları kurmasına yardımcı olan uygulanabilir çözümler geliştirmektir.",
+        servicesTitle: "Temel Hizmetler",
+        services: [
+          ["Kalite Yönetimi Danışmanlığı", "Kalite odaklı organizasyon gelişimi ve sürekli iyileştirme faaliyetleri için destek."],
+          ["Yönetim Sistemi Geliştirme", "Uygulanabilir yönetim sistemleri ve dokümantasyon yapılarının geliştirilmesi ve yapılandırılması."],
+          ["ISO 9001 Odaklı Destek", "ISO 9001 odaklı süreç ve yapılarını kurmak veya iyileştirmek isteyen şirketlere rehberlik."],
+          ["Süreç Yönetimi", "İş süreçlerinin, sorumlulukların ve süreç arayüzlerinin analizi, dokümantasyonu ve iyileştirilmesi."],
+          ["İç Denetim Desteği", "İç denetimlerin hazırlanması ve ilgili iyileştirme faaliyetlerinin takibi için destek."],
+          ["Tedarikçi Kalite Geliştirme", "Tedarikçi değerlendirme, tedarikçi geliştirme ve kalite odaklı iletişim konularında destek."]
+        ],
+        experienceTitle: "Deneyim",
+        experience: [
+          "Kalite yönetim sistemleri",
+          "Süreç yönetimi",
+          "İç denetimler",
+          "Doküman kontrol sistemleri",
+          "Tedarikçi kalite yönetimi",
+          "Teknik dokümantasyon",
+          "Endüstriyel sızdırmazlık teknolojileri",
+          "Kompansatör uygulamaları"
+        ],
+        qualificationsTitle: "Yetkinlikler",
+        qualifications: [
+          "Quality Management Professional (QMF-TÜV)",
+          "TÜV SÜD Akademie",
+          "Endüstriyel kalite yönetimi",
+          "Süreç ve yönetim sistemi geliştirme",
+          "Uluslararası sanayi deneyimi"
+        ],
+        contactTitle: "İletişim",
+        footer: "Kalite Yönetimi | Yönetim Sistemleri | Süreç İyileştirme<br>© 2026 Kompas Engineering"
+      }
+    };
+
+    function setLanguage(lang) {
+      const data = content[lang];
+
+      document.documentElement.lang = lang;
+      document.getElementById("subtitle").innerHTML = data.subtitle;
+      document.getElementById("intro").innerHTML = data.intro;
+      document.getElementById("about-title").innerHTML = data.aboutTitle;
+      document.getElementById("about-p1").innerHTML = data.aboutP1;
+      document.getElementById("about-p2").innerHTML = data.aboutP2;
+      document.getElementById("services-title").innerHTML = data.servicesTitle;
+
+      data.services.forEach((service, index) => {
+        document.getElementById(`service${index + 1}-title`).innerHTML = service[0];
+        document.getElementById(`service${index + 1}-text`).innerHTML = service[1];
+      });
+
+      document.getElementById("experience-title").innerHTML = data.experienceTitle;
+      document.getElementById("experience-list").innerHTML = data.experience.map(item => `<li>${item}</li>`).join("");
+
+      document.getElementById("qualifications-title").innerHTML = data.qualificationsTitle;
+      document.getElementById("qualifications-list").innerHTML = data.qualifications.map(item => `<li>${item}</li>`).join("");
+
+      document.getElementById("contact-title").innerHTML = data.contactTitle;
+      document.getElementById("footer").innerHTML = data.footer;
+
+      document.getElementById("btn-en").classList.remove("active");
+      document.getElementById("btn-de").classList.remove("active");
+      document.getElementById("btn-tr").classList.remove("active");
+      document.getElementById(`btn-${lang}`).classList.add("active");
+    }
+
+    setLanguage("en");
+  </script>
 </body>
 </html>
